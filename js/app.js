@@ -1,4 +1,7 @@
-var app = angular.module("todo-angular", ["ui.router"]);
+var app = angular.module("todo-angular", [
+  "ui.router",
+  "todo-angular.signup"
+]);
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
   $urlRouterProvider.otherwise("/");

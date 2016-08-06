@@ -18,5 +18,10 @@ function signup(){
 signupController.$inject = ['$scope'];
 
 function signupController($scope) {
-  $scope.toots = 'smells';
+  signupController = this;
+
+  signupController.submit = function() {
+    console.log('hello');
+  }
+
 }

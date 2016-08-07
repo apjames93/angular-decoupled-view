@@ -9,10 +9,10 @@ function login(){
       templateUrl: 'templates/login.html',
 // set up the controller. controllerAs: is assinging a name to the controller for when the file is minified
       scope: {},
-// scope:{} is making isolate scope so we dont have scope leek 
+// scope:{} is making isolate scope so we dont have scope leek
       controller: loginController,
       controllerAs: 'loginController'
-    }
+    };
 
     return directive;
 }
@@ -20,11 +20,11 @@ function login(){
 loginController.$inject = ['loginService'];
 
 function loginController(loginService) {
-  loginController = this;
+  loginController = this
 
   loginController.submit = function(userName, password) {
     loginService.loginUser(userName, password);
 
-  }
+  };
 
 }

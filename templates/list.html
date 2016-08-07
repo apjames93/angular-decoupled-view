@@ -3,3 +3,9 @@
   <li>{{listItem.list}}</li>
 </div>
 </ul>
+
+<button ng-click="showForm()">Create New List Item</button>
+<form ng-hide="hideForm" ng-submit='createListItem(newListItem)' method="post">
+          <input  placeholder="new list item" ng-model='newListItem' type="text" class="validate">
+          <button type="submit" name="button">Add new list item</button>
+</form>

@@ -1,7 +1,8 @@
 var app = angular.module('todo-angular', [
   'ui.router',
   'todo-angular.signup',
-  'todo-angular.login'
+  'todo-angular.login',
+  'todo-angular.list'
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider){

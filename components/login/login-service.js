@@ -3,19 +3,24 @@ angular.module('todo-angular.login.login-service', []).service('loginService', l
 loginService.$inject = ['$http', '$location'];
 
 function loginService($http, $location){
-  var JWT = {};
+  var user = {};
 
   return {
     loginUser: loginUser,
-    getToken: getToken
+    getToken: getToken,
+    getUserId : getUserId
   };
 
   function getToken() {
-      return JWT.token;
+      return user.token;
   }
 
-  function _setToken(token) {
-    JWT = { token: token };
+  function _setUserData(data) {
+    user = data;
+    console.log(user, 'user');
+  }
+  function getUserId(){
+    return user.userId;
   }
 
   function loginUser(userName, password) {
@@ -29,7 +34,7 @@ function loginService($http, $location){
       url: 'http://localhost:3000/auth/login'
     }).then(function successCallback(response) {
         console.log('win', response);
-        _setToken(response.data.token);
+        _setUserData(response.data);
         $location.path('/list');
       }, function errorCallback(response) {
         console.log('loose');

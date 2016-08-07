@@ -14,6 +14,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
     })
     .state('list', {
       url: '/list',
-      templateUrl:'/templates/list.html'
+      templateUrl:'/templates/list.html',
+      controller: 'listController'
     });
+
 });

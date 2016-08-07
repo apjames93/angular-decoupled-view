@@ -1,8 +1,8 @@
 angular.module('todo-angular.signup.signup-service', []).service('signupService', signupService);
 
-signupService.$inject = ['$http'];
+signupService.$inject = ['$http', 'loginService'];
 
-function signupService($http){
+function signupService($http, loginService){
   return {
     createUser: createUser
   };
@@ -17,7 +17,8 @@ function signupService($http){
       },
       url: 'http://localhost:3000/auth/signup'
     }).then(function successCallback(response) {
-        console.log('win');
+        console.log('win', response);
+        loginService.loginUser(userName, password)
       }, function errorCallback(response) {
         console.log('loose');
       });

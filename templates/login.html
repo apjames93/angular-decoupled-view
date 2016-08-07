@@ -1,0 +1,23 @@
+<div class="row">
+
+  <!-- add in ng-submit='signupController.submit()' to call the function in the singup-directive for submiting the form   -->
+  <form class="col s12" ng-submit='loginController.submit(userName, password)'>
+    <div class="row">
+      <div class="input-field col s12">
+<!-- use the ng-model for when the form is submited to update the correct colum names in your database tables  -->
+        <input id="user_name" placeholder="User Name" ng-model='userName'type="text" class="validate">
+      </div>
+
+
+    <div class="row">
+      <div class="input-field col s12">
+<!-- use the ng-model for when the form is submited to update the correct colum names in your database tables  -->
+        <input id="password" placeholder="Password" ng-model='password'type="password" class="validate">
+      </div>
+    </div>
+
+    <button class="btn waves-effect waves-light" type="submit" name="action">Log in 
+    </button>
+
+  </form>
+</div>

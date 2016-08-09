@@ -7,7 +7,8 @@ function listService($http, $q, loginService, $state){
   return {
     getListItems : getListItems,
     createListItem: createListItem,
-    deleteListItem: deleteListItem
+    deleteListItem: deleteListItem,
+    editListItem: editListItem
   };
   function getListItems(){
     var deferred = $q.defer();
@@ -76,4 +77,34 @@ function listService($http, $q, loginService, $state){
   });
   return deferred.promise;
   }
+
+  function editListItem(id , editListItem){
+    var deferred = $q.defer();
+    // Simple GET request example:
+    // console.log(id, "this is in deleteListItem");
+    $http({
+      method: 'PUT',
+      headers:{
+      Authorization: 'Bearer ' + loginService.getToken()
+    },
+   params: {
+      list_id: id,
+      editListItem: editListItem
+    },
+    url: 'http://localhost:3000/api/list/'+ id+'/edit'
+  })
+  .then(function(response) {
+    // this callback will be called asynchronously
+    // when the response is available
+    deferred.resolve(response.data.list);
+    $state.go($state.$current, null, { reload: true });
+    console.log('edit working', response);
+  }, function errorCallback(response) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+    console.log('edit not working ', response);
+  });
+  return deferred.promise;
+  }
+
 }

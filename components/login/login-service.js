@@ -35,7 +35,7 @@ function loginService($http, $location){
       },
       url: 'http://localhost:3000/auth/login'
     }).then(function successCallback(response) {
-        // console.log('win', response);
+        console.log('win', response);
         _setUserData(response.data);
         $location.path('/list');
       }, function errorCallback(response) {

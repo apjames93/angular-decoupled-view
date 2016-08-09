@@ -18,5 +18,5 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
       templateUrl:'/templates/list.html',
       controller: 'listController'
     });
-
+    $locationProvider.html5Mode(true);
 });

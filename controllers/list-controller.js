@@ -1,6 +1,7 @@
 (function(){
-  app
-  .controller('listController', listController);
+  angular
+    .module('todo-angular')
+    .controller('listController', listController);
 
   listController.$inject = ['$scope', 'listService'];
 

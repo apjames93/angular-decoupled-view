@@ -1,0 +1,15 @@
+
+<li>{{listItem.list}}</li>
+
+<button type="button" ng-click="deleteItem(listItem.id)">delete</button>
+
+
+
+<button ng-click="showForm()">Edit List Item</button>
+<form ng-hide="hideForm" ng-submit='editItem(listItem.id, editListItem)'>
+        <input ng-model='editListItem' type="text" class="validate">
+
+        <button  name="button">Edit list item</button>
+
+</form>
+<hr>

@@ -9,6 +9,7 @@ function loginService($http, $location){
     loginUser: loginUser,
     getToken: getToken,
     getUserId : getUserId
+
   };
 
   function getToken() {
@@ -17,14 +18,15 @@ function loginService($http, $location){
 
   function _setUserData(data) {
     user = data;
-    console.log(user, 'user');
+    // console.log(user, 'user');
   }
   function getUserId(){
     return user.userId;
   }
 
+
   function loginUser(userName, password) {
-    console.log('hello', userName, password);
+    // console.log('hello', userName, password);
     $http({
       method: 'post',
       params: {
@@ -33,11 +35,11 @@ function loginService($http, $location){
       },
       url: 'http://localhost:3000/auth/login'
     }).then(function successCallback(response) {
-        console.log('win', response);
+        // console.log('win', response);
         _setUserData(response.data);
         $location.path('/list');
       }, function errorCallback(response) {
-        console.log('loose');
+        // console.log('loose');
       });
   }
 

@@ -9,10 +9,10 @@ function signup(){
       templateUrl: 'templates/signup.html',
 // set up the controller. controllerAs: is assinging a name to the controller for when the file is minified
       scope: {},
-// scope:{} is making isolate scope so we dont have scope leek 
+// scope:{} is making isolate scope so we dont have scope leak
       controller: signupController,
       controllerAs: 'signupController'
-    }
+    };
 
     return directive;
 }
@@ -25,6 +25,6 @@ function signupController(signupService) {
   signupController.submit = function(userName, password) {
     signupService.createUser(userName, password);
 
-  }
+  };
 
 }

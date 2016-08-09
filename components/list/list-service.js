@@ -2,10 +2,11 @@ angular.module('todo-angular.list.list-service', []).service('listService', list
 
 listService.$inject = ['$http', '$q', 'loginService' ];
 
-function listService($http, $q, loginService){
+function listService($http, $q, loginService ){
   return {
     getListItems : getListItems,
-    createListItem: createListItem
+    createListItem: createListItem,
+    deleteListItem: deleteListItem
   };
   function getListItems(){
     var deferred = $q.defer();
@@ -19,8 +20,8 @@ function listService($http, $q, loginService){
       url: 'http://localhost:3000/api/list/' + loginService.getUserId()
     }).then(function successCallback(response) {
       deferred.resolve(response.data.list);
-    }, function errorCallback(response) {
-      console.log('loose');
+    }, function errorCallback(err) {
+      console.log(err);
     });
       return deferred.promise;
   }
@@ -46,4 +47,31 @@ function listService($http, $q, loginService){
       return deferred.promise;
   }
 
+
+  function deleteListItem(id){
+    var deferred = $q.defer();
+    // Simple GET request example:
+    // console.log(id, "this is in deleteListItem");
+    $http({
+      method: 'GET',
+      headers:{
+      Authorization: 'Bearer ' + loginService.getToken()
+    },
+   params: {
+      list_id: id
+    },
+    url: 'http://localhost:3000/api/list/'+ id+'/delete'
+  }).then(function successCallback(response, id) {
+    // this callback will be called asynchronously
+    // when the response is available
+    deferred.resolve(response.data.list);
+    $location.path('/list');
+    console.log('delete working', response);
+  }, function errorCallback(response, id) {
+    // called asynchronously if an error occurs
+    // or server returns response with an error status.
+    console.log('delete not working ', response, id);
+  });
+  return deferred.promise;
+  }
 }

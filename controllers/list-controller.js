@@ -10,7 +10,7 @@ function listController($scope, listService) {
   };
 
   _getListItems = function(){
-    listService.getListItems().then(function test(response){
+    listService.getListItems().then(function(response){
       $scope.listData = response;
     });
   };
@@ -20,12 +20,15 @@ function listController($scope, listService) {
   };
 
   $scope.createListItem = function(newListItem){
-    listService.createListItem(newListItem).then(function newItemCreated(){
+    listService.createListItem(newListItem)
+    .then(function newItemCreated(){
       _getListItems();
       $scope.hideForm = true;
       $scope.newListItem = '';
     });
   };
+
+
 
   _init();
 }

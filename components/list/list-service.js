@@ -31,7 +31,8 @@
           },
           //pass the loginService.getUserId() to get the users_id for the
           //right user data
-          url: 'http://localhost:3000/api/list/' + loginService.getUserId()
+          // url: 'http://localhost:3000/api/list/' + loginService.getUserId()
+          url: 'https://decoupled-api-server.herokuapp.com/api/list/' + loginService.getUserId()
         }).then(function successCallback(response) {
           deferred.resolve(response.data.list);
         }, function errorCallback(err) {
@@ -53,7 +54,8 @@
             list: newListItem,
             users_id: loginService.getUserId()
           },
-          url : 'http://localhost:3000/api/list/'
+          // url : 'http://localhost:3000/api/list/'
+            url: 'https://decoupled-api-server.herokuapp.com/api/list'
         }).then(function successCallback(response) {
           console.log(response, 'this is the new list ');
           deferred.resolve(response.data.list);
@@ -75,7 +77,8 @@
        params: {
           list_id: id
         },
-        url: 'http://localhost:3000/api/list/'+id
+        // url: 'http://localhost:3000/api/list/'+id
+          url: 'https://decoupled-api-server.herokuapp.com/api/list/' +id
       })
       .then(function(response) {
         // this callback will be called asynchronously
@@ -104,7 +107,8 @@
           list_id: id,
           editListItem: editListItem
         },
-        url: 'http://localhost:3000/api/list/'+ id
+        // url: 'http://localhost:3000/api/list/'+ id
+          url: 'https://decoupled-api-server.herokuapp.com/api/list/' + id
       })
       .then(function(response) {
         // this callback will be called asynchronously

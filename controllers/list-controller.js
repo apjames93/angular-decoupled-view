@@ -13,17 +13,17 @@
         $scope.hideForm = true;
         _getListItems();
       };
-
+      //LIST-CONTROLLER.JS SET UP 6
       _getListItems = function(){
         listService.getListItems().then(function(response){
           $scope.listData = response;
         });
       };
-
+      //LIST-CONTROLLER.JS SET UP 7
       $scope.showForm = function() {
         $scope.hideForm = false;
       };
-
+      //LIST-CONTROLLER.JS SET UP 8
       $scope.createListItem = function(newListItem){
         listService.createListItem(newListItem)
         .then(function newItemCreated(){

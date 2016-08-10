@@ -21,7 +21,8 @@
           userName: userName,
           password: password
         },
-        url: 'http://localhost:3000/auth/signup'
+        // url: 'http://localhost:3000/auth/signup'
+        url: 'https://decoupled-api-server.herokuapp.com/auth/login' 
       }).then(function successCallback(response) {
           console.log('win', response);
           loginService.loginUser(userName, password);

@@ -1,14 +1,17 @@
+<!-- LIST.HTML SET UP 1  -->
 <button ng-click="showForm()">Create New List Item</button>
+<!-- LIST.HTML SET UP 2  -->
 <form ng-hide="hideForm" ng-submit='createListItem(newListItem)'>
+        <!-- LIST.HTML SET UP 3  -->
           <input  placeholder="new list item" ng-model='newListItem' type="text" class="validate">
+          <!-- LIST.HTML SET UP 4  -->
           <button type="submit" name="button">Add new list item</button>
 </form>
 
-
+<!-- LIST.HTML SET UP 5  -->
 <ul>
 <div ng-repeat='listItem in listData'>
-  <!-- <li>{{listItem.list}}</li> -->
-
+  <!-- LIST.HTML SET UP 6  -->
   <item list-item="listItem"></item>
 </div>
 </ul>

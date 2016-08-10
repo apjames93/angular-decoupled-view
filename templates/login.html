@@ -1,3 +1,5 @@
+<!-- SETTING UP LOGIN TEMPLATE -->
+
 <div class="row">
 
   <!-- add in ng-submit='signupController.submit()' to call the function in the singup-directive for submiting the form   -->
@@ -16,8 +18,19 @@
       </div>
     </div>
 
-    <button class="btn waves-effect waves-light" type="submit" name="action">Log in 
+    <button class="btn waves-effect waves-light" type="submit" name="action">Log in
     </button>
 
   </form>
 </div>
+
+
+
+<form ng-submit='loginController.submit(userName, password)'>
+<!-- use the ng-model for when the form is submited to update the correct colum names in your database tables  -->
+      <input placeholder="User Name" ng-model='userName'type="text" class="validate">
+<!-- use the ng-model for when the form is submited to update the correct colum names in your database tables  -->
+      <input placeholder="Password" ng-model='password'type="password" class="validate">
+  <button>Log in
+  </button>
+</form>

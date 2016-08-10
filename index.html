@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- (INDEXHTML SETUP 4) -->
 <html ng-app="todo-angular">
   <head>
     <meta charset="utf-8">
@@ -14,23 +15,30 @@
     <base href="/">
   </head>
   <body>
-
-        <div class="view" ui-view></div>
+        <!-- (INDEXHTML SETUP 5) -->
+        <div ui-view></div>
 
 
     <!--Scripts-->
+    <!-- (INDEXHTML SETUP 1) -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <!-- (INDEXHTML SETUP 2) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <!-- (INDEXHTML SETUP 3) -->
     <script type="text/javascript" src="/js/app.js"></script>
 
+<!-- SETTING UP LOGIN TEMPLATE 2 -->
+    <script type="text/javascript" src="/components/login/login.js"></script>
+    <script type="text/javascript" src="/components/login/login-directive.js"></script>
+    <script type="text/javascript" src="/components/login/login-service.js"></script>
+    <!-- SETTING UP SIGNUP TEMPLATE 2-->
     <script type="text/javascript" src="/components/signup/signup.js"></script>
     <script type="text/javascript" src="/components/signup/signup-directive.js"></script>
     <script type="text/javascript" src="/components/signup/signup-service.js"></script>
 
-    <script type="text/javascript" src="/components/login/login.js"></script>
-    <script type="text/javascript" src="/components/login/login-directive.js"></script>
-    <script type="text/javascript" src="/components/login/login-service.js"></script>
-    
+
+    <!-- SETTING UP LIST-ITEM-TEMPLATE TEMPLATE 2 -->
+
     <script type="text/javascript" src="/controllers/list-controller.js"></script>
     <script type="text/javascript" src="/components/list/list.js"></script>
     <script type="text/javascript" src="/components/list/list-item-directive.js"></script>

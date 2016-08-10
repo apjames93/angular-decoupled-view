@@ -1,10 +1,13 @@
+//LIST-CONTROLLER.JS SET UP 1
 (function(){
+  //LIST-CONTROLLER.JS SET UP 2
   angular
     .module('todo-angular')
+    //LIST-CONTROLLER.JS SET UP 3
     .controller('listController', listController);
-
+    //LIST-CONTROLLER.JS SET UP 4
   listController.$inject = ['$scope', 'listService'];
-
+  //LIST-CONTROLLER.JS SET UP 5
     function listController($scope, listService) {
       _init = function() {
         $scope.hideForm = true;

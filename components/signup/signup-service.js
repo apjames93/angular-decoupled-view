@@ -1,14 +1,18 @@
+//SETTING UP SIGNUP SERVICE: 2
 (function(){
-  angular.module('todo-angular.signup.signup-service', [])
+  //SETTING UP SIGNUP SERVICE: 3
+  angular
+  .module('todo-angular.signup.signup-service', [])
+  //SETTING UP SIGNUP SERVICE: 4
   .service('signupService', signupService);
-
+  //SETTING UP SIGNUP SERVICE: 5
   signupService.$inject = ['$http', 'loginService'];
-
+  //SETTING UP SIGNUP SERVICE: 6
   function signupService($http, loginService){
     return {
       createUser: createUser
     };
-
+    //SETTING UP SIGNUP SERVICE: 7
     function createUser(userName, password) {
       console.log('hello', userName, password);
       $http({
@@ -26,5 +30,5 @@
         });
     }
   }
-  
+
 })();

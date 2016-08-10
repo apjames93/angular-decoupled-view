@@ -1,19 +1,21 @@
+//SETTING UP LIST DIRECTIVE 1
 (function(){
+  //SETTING UP LIST DIRECTIVE 2
   angular
     .module('todo-angular.list.list-item-directive', [])
+    //SETTING UP LIST DIRECTIVE 3
     .directive('item', item);
 
     function item(){
-        // console.log('am I here');
         var directive = {
           // restrict: "E " is restricting it to a html element
           restrict: 'E',
           templateUrl: '/templates/list-item.html',
-          // set up the controller. controllerAs: is assinging a name to the controller for when the file is minified
+          // set up the controller. controllerAs: is assigning a name to the controller for when the file is minified
           scope: {
             listItem: '='
           },
-          // scope:{ listItem: '='} is making isolate scope making this directive bind to the the listItem 
+          // scope:{ listItem: '='} is making isolate scope making this directive bind to the the listItem
           controller: listItemController,
           controllerAs: 'listItemController'
         };
@@ -24,7 +26,7 @@
     listItemController.$inject = ['$scope',  'listService'];
 
     function listItemController($scope, listService) {
-
+      
       $scope.hideForm = true;
 
       $scope.showForm = function(){

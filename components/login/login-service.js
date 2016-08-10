@@ -1,29 +1,38 @@
+//SETTING UP LOGIN SERVICE : 2
 (function(){
+  //SETTING UP LOGIN SERVICE : 3
   angular
     .module('todo-angular.login.login-service', [])
+    //SETTING UP LOGIN SERVICE : 4
     .service('loginService', loginService);
-
+    //SETTING UP LOGIN SERVICE : 5
     loginService.$inject = ['$http', '$location'];
-    
+
+    //SETTING UP LOGIN SERVICE : 6
     function loginService($http, $location){
+      //SETTING UP LOGIN SERVICE : 7
       var user = {};
+      //SETTING UP LOGIN SERVICE : 8
       return {
-        loginUser: loginUser,
         getToken: getToken,
-        getUserId : getUserId
+        getUserId : getUserId,
+        loginUser: loginUser
       };
-      function getToken() {
-          return user.token;
-      }
       function _setUserData(data) {
         user = data;
         // console.log(user, 'user');
       }
+      //SETTING UP LOGIN SERVICE : 10
+      function getToken() {
+          return user.token;
+      }
+      //SETTING UP LOGIN SERVICE : 11
       function getUserId(){
         return user.userId;
       }
+      //SETTING UP LOGIN SERVICE : 12
       function loginUser(userName, password) {
-        // console.log('hello', userName, password);
+        //SETTING UP LOGIN SERVICE : 13
         $http({
           method: 'post',
           params: {
@@ -32,11 +41,11 @@
           },
           url: 'http://localhost:3000/auth/login'
         }).then(function successCallback(response) {
-            console.log('win', response);
+            console.log( response);
             _setUserData(response.data);
             $location.path('/list');
-          }, function errorCallback(response) {
-            // console.log('loose');
+          }, function errorCallback(err) {
+            console.log(err);
           });
       }
 

@@ -1,3 +1,4 @@
+// SETTING UP LIST SERVICE 1
 "use strict";
 
 angular

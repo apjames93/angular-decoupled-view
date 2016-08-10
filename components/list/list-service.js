@@ -1,27 +1,36 @@
+//SETTING UP LIST SERVICE 2
 (function(){
+  //SETTING UP LIST SERVICE 3
   angular
     .module('todo-angular.list.list-service', [])
+    //SETTING UP LIST SERVICE 4
     .service('listService', listService);
-    
+    //SETTING UP LIST SERVICE 5
     listService.$inject = ['$http', '$q', 'loginService', '$state'];
-
+    //SETTING UP LIST SERVICE 6
     function listService($http, $q, loginService, $state){
       return {
-        //injection listService functions to the listService
         getListItems : getListItems,
+        //SETTING UP LIST SERVICE 9
         createListItem: createListItem,
+        //SETTING UP LIST SERVICE 11
         deleteListItem: deleteListItem,
+        //SETTING UP LIST SERVICE 13
         editListItem: editListItem
       };
+      //SETTING UP LIST SERVICE 7
       function getListItems(){
         var deferred = $q.defer();
 
         $http({
           method: 'get',
-          // setting the herders Authorization to the to getToken() so we are able to pass the token for Authorization
+          // setting the herders Authorization to the to getToken()
+          // so we are able to pass the token for Authorization
           headers: {
             Authorization: 'Bearer ' + loginService.getToken()
           },
+          //pass the loginService.getUserId() to get the users_id for the
+          //right user data
           url: 'http://localhost:3000/api/list/' + loginService.getUserId()
         }).then(function successCallback(response) {
           deferred.resolve(response.data.list);
@@ -30,6 +39,8 @@
         });
           return deferred.promise;
       }
+
+      //SETTING UP LIST SERVICE 8
       function createListItem(newListItem){
         var deferred = $q.defer();
 
@@ -51,6 +62,7 @@
         });
           return deferred.promise;
       }
+      //SETTING UP LIST SERVICE 10
       function deleteListItem(id){
         var deferred = $q.defer();
         // Simple GET request example:
@@ -78,7 +90,7 @@
       });
       return deferred.promise;
       }
-
+      //SETTING UP LIST SERVICE 12
       function editListItem(id , editListItem){
         var deferred = $q.defer();
         // Simple GET request example:

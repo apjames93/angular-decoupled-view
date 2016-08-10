@@ -1,3 +1,4 @@
+//SETTING UP SIGNUP SERVICE: 1
 "use strict";
 
 angular
